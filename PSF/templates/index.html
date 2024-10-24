@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pruebas de Suficiencia Física</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Enlazar el CSS -->
+</head>
+<body>
+  <h1>Control de Pruebas de Suficiencia Física</h1>
+  <section>
+    <h2>Ingrese los antecedentes solicitados</h2>
+    <form method = "post">
+      <input name="nombre" type="text" placeholder="Ingrese su Nombre" required>
+      <input name="edad" type="number" placeholder="Ingrese su Edad" required>
+      <input name="peso" type="number" placeholder="Ingrese su Peso" required>
+      <input name="altura" type="number" placeholder="Ingrese su Altura" required>
+      <select class = "seleccion" name="sexo" required>
+        <option value="">Ingrese su sexo...</option>
+        <option value="f">Femenino</option>
+        <option value="m">Masculino</option>
+      </select>
+      <button type="submit">Obtener resultados</button>
+    </form>
+  </section>
+  <section>
+    <h2>Datos Personales</h2>
+    <p>Nombre: {{ nombre }}</p>
+    <p>Edad: {{ edad }}</p>
+    <p>Peso: {{ peso }}</p>
+    <p>Altura: {{ altura }}</p>
+    <p>Sexo: {{ sexo }}</p>
+    <p>IMC: su imc es de {{imc}}</p>
+    <p class="{{ mjeNutricion }}">Su condición nutricional segun su IMC es: {{ mjeNutricion }}</p>
+  </section>
+  <section>
+    <h2>¿Cuánto necesitas rendir en tus PSF?</h2>
+    <p><u>Carrera 2400 mts:</u> {{ resultadoFinal1 | safe }}</p>
+    <p><u>Abdominales:</u> {{ resultadoFinal2 | safe }}</p>
+    <p><u>Flexion de codo en la barra fija:</u> {{ resultadoFinal3 | safe }}</p>
+    <p><u>Flexion de codo en el suelo femenino:</u> {{ resultadoFinal4 | safe }}</p>
+    <p><u>Flexion de codo en el suelo masculino:</u> {{ resultadoFinal5 | safe }}</p>
+  <section/>
+</body>
+</html>
+
